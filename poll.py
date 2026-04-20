@@ -29,13 +29,25 @@ UA = (
 )
 
 THEATER_URL = f"https://cgv.co.kr/cnm/movieBook/cinema?siteNo={SITE_NO}"
+APP_PACKAGE = "com.cgv.android.movieapp"
+
+
+def app_link(web_url: str) -> str:
+    """Android intent URL: opens CGV app if installed, else falls back to browser."""
+    host_path = web_url.split("://", 1)[1]
+    fallback = urllib.parse.quote(web_url, safe="")
+    return (
+        f"intent://{host_path}"
+        f"#Intent;scheme=https;package={APP_PACKAGE};"
+        f"S.browser_fallback_url={fallback};end"
+    )
 
 
 def book_link(ymd: str, mov_no: str | None = None) -> str:
     qs = f"siteNo={SITE_NO}&scnYmd={ymd}"
     if mov_no:
         qs += f"&movNo={mov_no}"
-    return f"https://cgv.co.kr/cnm/movieBook/cinema?{qs}"
+    return app_link(f"https://cgv.co.kr/cnm/movieBook/cinema?{qs}")
 
 
 def signed_get(path: str, params: dict) -> dict:
@@ -160,7 +172,7 @@ def main() -> int:
         if current:
             furthest = max(current)
             lines.append(f"가장 먼 날짜: {fmt_date(furthest)}")
-        lines += ["", f'🔗 <a href="{THEATER_URL}">극장 예매 페이지</a>']
+        lines += ["", f'🔗 <a href="{app_link(THEATER_URL)}">극장 예매 페이지</a>']
         send_telegram("\n".join(lines))
         save_state(current)
         print(f"initialized: {len(current)} dates, {total} IMAX entries")
@@ -192,7 +204,7 @@ def main() -> int:
                 lines.append(f"  • <b>{fmt_date(ymd)}</b>")
                 lines.append(fmt_entry(ymd, name, mov_no))
             lines.append("")
-        lines.append(f'🔗 <a href="{THEATER_URL}">극장 페이지</a>')
+        lines.append(f'🔗 <a href="{app_link(THEATER_URL)}">극장 페이지</a>')
         send_telegram("\n".join(lines))
         print(f"notified: {len(new_dates)} new dates, {len(new_in_existing)} new pairs")
     else:
