@@ -1,19 +1,7 @@
 {
-  "20260420": [
-    {
-      "frSeatCnt": "335",
-      "movNo": "30000994",
-      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
-      "scnSseq": "6",
-      "scnendTm": "2506",
-      "scnsNm": "IMAX관",
-      "scnsNo": "018",
-      "scnsrtTm": "2220"
-    }
-  ],
   "20260421": [
     {
-      "frSeatCnt": "229",
+      "frSeatCnt": "227",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -23,7 +11,7 @@
       "scnsrtTm": "2050"
     },
     {
-      "frSeatCnt": "428",
+      "frSeatCnt": "426",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "7",
@@ -47,7 +35,7 @@
   ],
   "20260423": [
     {
-      "frSeatCnt": "350",
+      "frSeatCnt": "348",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -59,7 +47,7 @@
   ],
   "20260424": [
     {
-      "frSeatCnt": "165",
+      "frSeatCnt": "163",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -71,7 +59,7 @@
   ],
   "20260425": [
     {
-      "frSeatCnt": "215",
+      "frSeatCnt": "183",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "5",
@@ -81,7 +69,7 @@
       "scnsrtTm": "2020"
     },
     {
-      "frSeatCnt": "361",
+      "frSeatCnt": "319",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -93,7 +81,7 @@
   ],
   "20260426": [
     {
-      "frSeatCnt": "271",
+      "frSeatCnt": "247",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "5",
@@ -103,7 +91,7 @@
       "scnsrtTm": "1950"
     },
     {
-      "frSeatCnt": "464",
+      "frSeatCnt": "442",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
