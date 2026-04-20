@@ -35,7 +35,7 @@ PAGES_URL = "https://lsy980507.github.io/cgv-imax-watcher/"
 
 
 def app_link(web_url: str) -> str:
-    return f"{PAGES_URL}?u={urllib.parse.quote(web_url, safe='')}"
+    return f"{PAGES_URL}?v=3&u={urllib.parse.quote(web_url, safe='')}"
 
 
 def showing_url(ymd: str, mov_no: str, scns_no: str, scn_sseq: str) -> str:
