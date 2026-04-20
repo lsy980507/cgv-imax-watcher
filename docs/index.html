@@ -13,28 +13,22 @@
 </style>
 </head>
 <body>
-<p>CGV로 이동 중...</p>
+<h3>CGV 이동</h3>
 <a id="appBtn" class="btn btn-app" style="display:none">📱 CGV 앱에서 열기</a>
 <a id="webBtn" class="btn btn-web">🌐 웹에서 열기</a>
-<p id="hint" class="hint">자동으로 이동되지 않으면 위 버튼을 탭하세요.</p>
+<p class="hint">Android는 앱 버튼, iOS/PC는 웹 버튼을 탭하세요. 앱으로 열면 로그인/좌석 선택이 훨씬 원활합니다.</p>
 <script>
 (function () {
   var u = new URLSearchParams(location.search).get('u');
   if (!u) { document.body.textContent = '링크 오류: u 파라미터 없음'; return; }
   var hostPath = u.split('://')[1] || '';
   var intentUrl = 'intent://' + hostPath
-    + '#Intent;scheme=https;package=com.cgv.android.movieapp;'
+    + '#Intent;scheme=https;package=co.kr.cgv.cjcgv;'
     + 'S.browser_fallback_url=' + encodeURIComponent(u) + ';end';
-  var webBtn = document.getElementById('webBtn');
-  var appBtn = document.getElementById('appBtn');
-  webBtn.href = u;
-  appBtn.href = intentUrl;
-  var isAndroid = /Android/i.test(navigator.userAgent);
-  if (isAndroid) {
-    appBtn.style.display = '';
-    setTimeout(function () { location.href = intentUrl; }, 150);
-  } else {
-    setTimeout(function () { location.href = u; }, 150);
+  document.getElementById('webBtn').href = u;
+  document.getElementById('appBtn').href = intentUrl;
+  if (/Android/i.test(navigator.userAgent)) {
+    document.getElementById('appBtn').style.display = '';
   }
 })();
 </script>
