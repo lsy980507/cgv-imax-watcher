@@ -32,23 +32,25 @@ UA = (
 )
 
 PAGES_URL = "https://lsy980507.github.io/cgv-imax-watcher/"
+_SITE_NM_ENC = urllib.parse.quote(SITE_NM)
 
 
 def app_link(web_url: str) -> str:
-    return f"{PAGES_URL}?v=3&u={urllib.parse.quote(web_url, safe='')}"
+    return f"{PAGES_URL}?v=4&u={urllib.parse.quote(web_url, safe='')}"
 
 
 def showing_url(ymd: str, mov_no: str, scns_no: str, scn_sseq: str) -> str:
-    """검증된 /cnm/movieBook/cinema 경로 + 가능한 모든 식별자.
+    """/cnm/movieBook/movie + 모든 식별자 + siteNm.
 
-    CGV의 단일 회차 좌석 페이지 URL은 공개돼 있지 않아, 극장 예매 페이지에
-    영화/날짜/스크린/회차 시퀀스를 모두 넣어 최대한 좌석 단계로 내려가도록 유도.
+    siteNm 없이 cinema/movie 경로를 열면 서버가 siteNm=$undefined로 렌더해
+    UI 상 극장이 선택되지 않음. URL-encoded 한글 극장명을 넘겨야 예매 플로우가
+    해당 극장·회차로 사전 세팅된다.
     """
     qs = (
-        f"siteNo={SITE_NO}&scnYmd={ymd}&movNo={mov_no}"
+        f"movNo={mov_no}&scnYmd={ymd}&siteNo={SITE_NO}&siteNm={_SITE_NM_ENC}"
         f"&scnsNo={scns_no}&scnSseq={scn_sseq}"
     )
-    return f"https://cgv.co.kr/cnm/movieBook/cinema?{qs}"
+    return f"https://cgv.co.kr/cnm/movieBook/movie?{qs}"
 
 
 def signed_get(path: str, params: dict) -> dict:
