@@ -38,11 +38,17 @@ def app_link(web_url: str) -> str:
     return f"{PAGES_URL}?u={urllib.parse.quote(web_url, safe='')}"
 
 
-def seat_url(ymd: str, scns_no: str, scn_sseq: str) -> str:
-    return (
-        f"https://cgv.co.kr/cnm/movieBook/seat?"
-        f"siteNo={SITE_NO}&scnYmd={ymd}&scnsNo={scns_no}&scnSseq={scn_sseq}"
+def showing_url(ymd: str, mov_no: str, scns_no: str, scn_sseq: str) -> str:
+    """검증된 /cnm/movieBook/cinema 경로 + 가능한 모든 식별자.
+
+    CGV의 단일 회차 좌석 페이지 URL은 공개돼 있지 않아, 극장 예매 페이지에
+    영화/날짜/스크린/회차 시퀀스를 모두 넣어 최대한 좌석 단계로 내려가도록 유도.
+    """
+    qs = (
+        f"siteNo={SITE_NO}&scnYmd={ymd}&movNo={mov_no}"
+        f"&scnsNo={scns_no}&scnSseq={scn_sseq}"
     )
+    return f"https://cgv.co.kr/cnm/movieBook/cinema?{qs}"
 
 
 def signed_get(path: str, params: dict) -> dict:
@@ -113,6 +119,7 @@ def fetch_snapshot() -> dict[str, list[dict]]:
                     "scnendTm": r.get("scnendTm") or "",
                     "scnsNm": r.get("scnsNm") or "",
                     "prodNm": r.get("prodNm") or "",
+                    "movNo": r.get("movNo") or "",
                     "frSeatCnt": r.get("frSeatCnt") or "",
                 }
             )
@@ -164,12 +171,14 @@ def esc(s: str) -> str:
 
 
 def fmt_showing(ymd: str, s: dict) -> str:
-    link = app_link(seat_url(ymd, s["scnsNo"], s["scnSseq"]))
+    link = app_link(
+        showing_url(ymd, s.get("movNo", ""), s["scnsNo"], s["scnSseq"])
+    )
     label = (
         f'{fmt_time(s["scnsrtTm"])}~{fmt_time(s["scnendTm"])} '
         f'· {esc(s["scnsNm"])} · 잔여 {esc(s["frSeatCnt"])}석'
     )
-    return f'      - <a href="{link}">{label} (좌석 선택)</a>'
+    return f'      - <a href="{link}">{label} (예매)</a>'
 
 
 def main() -> int:

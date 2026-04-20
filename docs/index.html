@@ -4,26 +4,37 @@
 <meta charset="utf-8">
 <title>CGV로 이동</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<style>body{font-family:-apple-system,system-ui,sans-serif;padding:2em;line-height:1.6;color:#333}</style>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; padding: 2em; line-height: 1.6; color: #222; max-width: 480px; margin: 0 auto; }
+  .btn { display: block; padding: 14px 20px; margin: 12px 0; border-radius: 8px; text-align: center; text-decoration: none; font-weight: 600; }
+  .btn-app { background: #e6002d; color: #fff; }
+  .btn-web { background: #eee; color: #222; }
+  .hint { color: #666; font-size: 0.9em; }
+</style>
 </head>
 <body>
 <p>CGV로 이동 중...</p>
-<p id="fb" style="display:none">자동으로 이동되지 않으면 <a id="fbLink">여기를 탭</a>하세요.</p>
+<a id="appBtn" class="btn btn-app" style="display:none">📱 CGV 앱에서 열기</a>
+<a id="webBtn" class="btn btn-web">🌐 웹에서 열기</a>
+<p id="hint" class="hint">자동으로 이동되지 않으면 위 버튼을 탭하세요.</p>
 <script>
 (function () {
   var u = new URLSearchParams(location.search).get('u');
   if (!u) { document.body.textContent = '링크 오류: u 파라미터 없음'; return; }
-  document.getElementById('fbLink').href = u;
-  document.getElementById('fb').style.display = '';
-  var ua = navigator.userAgent;
-  if (/Android/i.test(ua)) {
-    var hostPath = u.split('://')[1] || '';
-    var intentUrl = 'intent://' + hostPath
-      + '#Intent;scheme=https;package=com.cgv.android.movieapp;'
-      + 'S.browser_fallback_url=' + encodeURIComponent(u) + ';end';
-    location.replace(intentUrl);
+  var hostPath = u.split('://')[1] || '';
+  var intentUrl = 'intent://' + hostPath
+    + '#Intent;scheme=https;package=com.cgv.android.movieapp;'
+    + 'S.browser_fallback_url=' + encodeURIComponent(u) + ';end';
+  var webBtn = document.getElementById('webBtn');
+  var appBtn = document.getElementById('appBtn');
+  webBtn.href = u;
+  appBtn.href = intentUrl;
+  var isAndroid = /Android/i.test(navigator.userAgent);
+  if (isAndroid) {
+    appBtn.style.display = '';
+    setTimeout(function () { location.href = intentUrl; }, 150);
   } else {
-    location.replace(u);
+    setTimeout(function () { location.href = u; }, 150);
   }
 })();
 </script>
