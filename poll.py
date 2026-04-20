@@ -1,4 +1,4 @@
-"""CGV 용산아이파크몰 IMAX 신규 오픈 감시 → 텔레그램 알림."""
+"""CGV 용산아이파크몰 프로젝트 헤일메리 IMAX 신규 회차 감시 (18:00 이후)."""
 import base64
 import hashlib
 import hmac
@@ -23,31 +23,26 @@ CO_CD = "A420"
 RTCTL_SCOP_CD = "08"
 DAYS_AHEAD = 30
 
+MOVIE_KEYWORDS = ("헤일메리", "Hail Mary", "hailmary", "HAIL MARY")
+MIN_TIME = "1800"
+
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 )
 
-THEATER_URL = f"https://cgv.co.kr/cnm/movieBook/cinema?siteNo={SITE_NO}"
-APP_PACKAGE = "com.cgv.android.movieapp"
+PAGES_URL = "https://lsy980507.github.io/cgv-imax-watcher/"
 
 
 def app_link(web_url: str) -> str:
-    """Android intent URL: opens CGV app if installed, else falls back to browser."""
-    host_path = web_url.split("://", 1)[1]
-    fallback = urllib.parse.quote(web_url, safe="")
+    return f"{PAGES_URL}?u={urllib.parse.quote(web_url, safe='')}"
+
+
+def seat_url(ymd: str, scns_no: str, scn_sseq: str) -> str:
     return (
-        f"intent://{host_path}"
-        f"#Intent;scheme=https;package={APP_PACKAGE};"
-        f"S.browser_fallback_url={fallback};end"
+        f"https://cgv.co.kr/cnm/movieBook/seat?"
+        f"siteNo={SITE_NO}&scnYmd={ymd}&scnsNo={scns_no}&scnSseq={scn_sseq}"
     )
-
-
-def book_link(ymd: str, mov_no: str | None = None) -> str:
-    qs = f"siteNo={SITE_NO}&scnYmd={ymd}"
-    if mov_no:
-        qs += f"&movNo={mov_no}"
-    return app_link(f"https://cgv.co.kr/cnm/movieBook/cinema?{qs}")
 
 
 def signed_get(path: str, params: dict) -> dict:
@@ -77,13 +72,21 @@ def is_imax(row: dict) -> bool:
     ).startswith("IMAX")
 
 
-def fetch_snapshot() -> dict[str, dict[str, str]]:
-    """{YYYYMMDD: {영화명: movNo}}"""
+def is_target_movie(row: dict) -> bool:
+    blob = " ".join(
+        (row.get(k) or "")
+        for k in ("prodNm", "movNm", "engProdNm", "movEnm", "expoProdNm")
+    )
+    return any(kw in blob for kw in MOVIE_KEYWORDS)
+
+
+def fetch_snapshot() -> dict[str, list[dict]]:
+    """{YYYYMMDD: [showing, ...]} — 헤일메리 IMAX & 18:00 이후만."""
     today = date.today()
-    out: dict[str, dict[str, str]] = {}
+    out: dict[str, list[dict]] = {}
     for i in range(DAYS_AHEAD + 1):
         ymd = (today + timedelta(days=i)).strftime("%Y%m%d")
-        data = signed_get(
+        rows = signed_get(
             "/cnm/atkt/searchMovScnInfo",
             {
                 "coCd": CO_CD,
@@ -95,26 +98,33 @@ def fetch_snapshot() -> dict[str, dict[str, str]]:
                 "custNo": "",
             },
         ).get("data") or []
-        movies: dict[str, str] = {}
-        for row in data:
-            if not is_imax(row):
+        keep: list[dict] = []
+        for r in rows:
+            if not (is_imax(r) and is_target_movie(r)):
                 continue
-            name = row.get("prodNm")
-            if not name:
+            start = r.get("scnsrtTm") or ""
+            if len(start) != 4 or not start.isdigit() or start < MIN_TIME:
                 continue
-            movies.setdefault(name, row.get("movNo") or "")
-        if movies:
-            out[ymd] = movies
+            keep.append(
+                {
+                    "scnsNo": r.get("scnsNo") or "",
+                    "scnSseq": r.get("scnSseq") or "",
+                    "scnsrtTm": start,
+                    "scnendTm": r.get("scnendTm") or "",
+                    "scnsNm": r.get("scnsNm") or "",
+                    "prodNm": r.get("prodNm") or "",
+                    "frSeatCnt": r.get("frSeatCnt") or "",
+                }
+            )
+        if keep:
+            keep.sort(key=lambda x: x["scnsrtTm"])
+            out[ymd] = keep
     return out
 
 
 def load_state() -> dict | None:
     if STATE_FILE.exists():
-        raw = json.loads(STATE_FILE.read_text(encoding="utf-8"))
-        # 구 포맷(list) 호환
-        if raw and isinstance(next(iter(raw.values())), list):
-            return {d: {m: "" for m in ms} for d, ms in raw.items()}
-        return raw
+        return json.loads(STATE_FILE.read_text(encoding="utf-8"))
     return None
 
 
@@ -145,13 +155,21 @@ def fmt_date(ymd: str) -> str:
     return f"{ymd[:4]}-{ymd[4:6]}-{ymd[6:]}" if len(ymd) == 8 and ymd.isdigit() else ymd
 
 
+def fmt_time(hhmm: str) -> str:
+    return f"{hhmm[:2]}:{hhmm[2:]}" if len(hhmm) == 4 and hhmm.isdigit() else hhmm
+
+
 def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def fmt_entry(ymd: str, name: str, mov_no: str) -> str:
-    link = book_link(ymd, mov_no)
-    return f'      - <a href="{link}">{esc(name)}</a>'
+def fmt_showing(ymd: str, s: dict) -> str:
+    link = app_link(seat_url(ymd, s["scnsNo"], s["scnSseq"]))
+    label = (
+        f'{fmt_time(s["scnsrtTm"])}~{fmt_time(s["scnendTm"])} '
+        f'· {esc(s["scnsNm"])} · 잔여 {esc(s["frSeatCnt"])}석'
+    )
+    return f'      - <a href="{link}">{label} (좌석 선택)</a>'
 
 
 def main() -> int:
@@ -164,49 +182,48 @@ def main() -> int:
     prev = load_state()
 
     if prev is None:
-        total = sum(len(m) for m in current.values())
+        total = sum(len(v) for v in current.values())
         lines = [
-            f"🎬 <b>{SITE_NM} IMAX 감시 시작</b>",
-            f"현재 오픈 날짜: {len(current)} / 총 IMAX 회차: {total}",
+            f"🎬 <b>{SITE_NM} 프로젝트 헤일메리 IMAX 감시 시작</b>",
+            f"18:00 이후 회차: {total}개 / {len(current)}일",
         ]
         if current:
-            furthest = max(current)
-            lines.append(f"가장 먼 날짜: {fmt_date(furthest)}")
-        lines += ["", f'🔗 <a href="{app_link(THEATER_URL)}">극장 예매 페이지</a>']
+            lines.append("")
+            lines.append("📅 <b>현재 오픈 회차</b>")
+            for ymd in sorted(current):
+                lines.append(f"  • <b>{fmt_date(ymd)}</b>")
+                for s in current[ymd]:
+                    lines.append(fmt_showing(ymd, s))
+        else:
+            lines.append("")
+            lines.append("(아직 오픈된 회차 없음 — 열리면 알림 발송)")
         send_telegram("\n".join(lines))
         save_state(current)
-        print(f"initialized: {len(current)} dates, {total} IMAX entries")
+        print(f"initialized: {total} showings across {len(current)} days")
         return 0
 
-    new_dates = sorted(set(current) - set(prev))
-    new_in_existing: list[tuple[str, str, str]] = []
-    for ymd, movies in current.items():
-        if ymd in new_dates:
-            continue
-        old = set(prev.get(ymd, {}).keys())
-        for name, mov_no in movies.items():
-            if name not in old:
-                new_in_existing.append((ymd, name, mov_no))
-    new_in_existing.sort()
+    new_showings: list[tuple[str, dict]] = []
+    for ymd, shows in current.items():
+        prev_keys = {(s["scnsNo"], s["scnSseq"]) for s in prev.get(ymd, [])}
+        for s in shows:
+            if (s["scnsNo"], s["scnSseq"]) not in prev_keys:
+                new_showings.append((ymd, s))
+    new_showings.sort(key=lambda x: (x[0], x[1]["scnsrtTm"]))
 
-    if new_dates or new_in_existing:
-        lines = [f"🎬 <b>{SITE_NM} IMAX 신규 오픈!</b>", ""]
-        if new_dates:
-            lines.append("📅 <b>새로 열린 날짜</b>")
-            for d in new_dates:
-                lines.append(f"  • <b>{fmt_date(d)}</b>")
-                for name, mov_no in current[d].items():
-                    lines.append(fmt_entry(d, name, mov_no))
-            lines.append("")
-        if new_in_existing:
-            lines.append("🎞️ <b>기존 날짜에 추가된 회차</b>")
-            for ymd, name, mov_no in new_in_existing:
-                lines.append(f"  • <b>{fmt_date(ymd)}</b>")
-                lines.append(fmt_entry(ymd, name, mov_no))
-            lines.append("")
-        lines.append(f'🔗 <a href="{app_link(THEATER_URL)}">극장 페이지</a>')
+    if new_showings:
+        lines = [
+            f"🎬 <b>{SITE_NM} 프로젝트 헤일메리 IMAX 신규 회차!</b> (18:00 이후)",
+            "",
+        ]
+        by_date: dict[str, list[dict]] = {}
+        for ymd, s in new_showings:
+            by_date.setdefault(ymd, []).append(s)
+        for ymd in sorted(by_date):
+            lines.append(f"  • <b>{fmt_date(ymd)}</b>")
+            for s in by_date[ymd]:
+                lines.append(fmt_showing(ymd, s))
         send_telegram("\n".join(lines))
-        print(f"notified: {len(new_dates)} new dates, {len(new_in_existing)} new pairs")
+        print(f"notified: {len(new_showings)} new showings")
     else:
         print("no changes")
 

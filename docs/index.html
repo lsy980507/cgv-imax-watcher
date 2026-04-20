@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>CGV로 이동</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font-family:-apple-system,system-ui,sans-serif;padding:2em;line-height:1.6;color:#333}</style>
+</head>
+<body>
+<p>CGV로 이동 중...</p>
+<p id="fb" style="display:none">자동으로 이동되지 않으면 <a id="fbLink">여기를 탭</a>하세요.</p>
+<script>
+(function () {
+  var u = new URLSearchParams(location.search).get('u');
+  if (!u) { document.body.textContent = '링크 오류: u 파라미터 없음'; return; }
+  document.getElementById('fbLink').href = u;
+  document.getElementById('fb').style.display = '';
+  var ua = navigator.userAgent;
+  if (/Android/i.test(ua)) {
+    var hostPath = u.split('://')[1] || '';
+    var intentUrl = 'intent://' + hostPath
+      + '#Intent;scheme=https;package=com.cgv.android.movieapp;'
+      + 'S.browser_fallback_url=' + encodeURIComponent(u) + ';end';
+    location.replace(intentUrl);
+  } else {
+    location.replace(u);
+  }
+})();
+</script>
+</body>
+</html>
