@@ -1,7 +1,7 @@
 {
   "20260421": [
     {
-      "frSeatCnt": "225",
+      "frSeatCnt": "223",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -11,7 +11,7 @@
       "scnsrtTm": "2050"
     },
     {
-      "frSeatCnt": "432",
+      "frSeatCnt": "425",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "7",
@@ -23,7 +23,7 @@
   ],
   "20260422": [
     {
-      "frSeatCnt": "371",
+      "frSeatCnt": "366",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -35,7 +35,7 @@
   ],
   "20260423": [
     {
-      "frSeatCnt": "347",
+      "frSeatCnt": "348",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -47,7 +47,7 @@
   ],
   "20260424": [
     {
-      "frSeatCnt": "163",
+      "frSeatCnt": "160",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -59,7 +59,7 @@
   ],
   "20260425": [
     {
-      "frSeatCnt": "173",
+      "frSeatCnt": "141",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "5",
@@ -69,7 +69,7 @@
       "scnsrtTm": "2020"
     },
     {
-      "frSeatCnt": "312",
+      "frSeatCnt": "285",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -81,7 +81,7 @@
   ],
   "20260426": [
     {
-      "frSeatCnt": "242",
+      "frSeatCnt": "216",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "5",
@@ -91,7 +91,7 @@
       "scnsrtTm": "1950"
     },
     {
-      "frSeatCnt": "434",
+      "frSeatCnt": "423",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -99,6 +99,18 @@
       "scnsNm": "IMAX관",
       "scnsNo": "018",
       "scnsrtTm": "2300"
+    }
+  ],
+  "20260429": [
+    {
+      "frSeatCnt": "0",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "8",
+      "scnendTm": "2726",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2440"
     }
   ]
 }
