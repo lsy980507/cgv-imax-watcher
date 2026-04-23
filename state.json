@@ -1,7 +1,7 @@
 {
   "20260423": [
     {
-      "frSeatCnt": "338",
+      "frSeatCnt": "333",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -25,7 +25,7 @@
   ],
   "20260425": [
     {
-      "frSeatCnt": "103",
+      "frSeatCnt": "94",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "5",
@@ -35,7 +35,7 @@
       "scnsrtTm": "2020"
     },
     {
-      "frSeatCnt": "247",
+      "frSeatCnt": "241",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -47,7 +47,7 @@
   ],
   "20260426": [
     {
-      "frSeatCnt": "165",
+      "frSeatCnt": "159",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "5",
@@ -57,7 +57,7 @@
       "scnsrtTm": "1950"
     },
     {
-      "frSeatCnt": "387",
+      "frSeatCnt": "382",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "6",
@@ -67,9 +67,31 @@
       "scnsrtTm": "2300"
     }
   ],
+  "20260427": [
+    {
+      "frSeatCnt": "406",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "2336",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2050"
+    },
+    {
+      "frSeatCnt": "578",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2646",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2400"
+    }
+  ],
   "20260429": [
     {
-      "frSeatCnt": "461",
+      "frSeatCnt": "449",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "8",
@@ -81,7 +103,7 @@
   ],
   "20260430": [
     {
-      "frSeatCnt": "297",
+      "frSeatCnt": "298",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "7",
@@ -91,7 +113,7 @@
       "scnsrtTm": "2230"
     },
     {
-      "frSeatCnt": "439",
+      "frSeatCnt": "435",
       "movNo": "30000994",
       "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
       "scnSseq": "8",
