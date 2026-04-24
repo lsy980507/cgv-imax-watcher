@@ -1,4 +1,4 @@
-"""CGV 용산아이파크몰 프로젝트 헤일메리 IMAX 신규 회차 감시 (18:00 이후)."""
+"""CGV 용산아이파크몰 전체 IMAX 신규 회차 감시."""
 import base64
 import hashlib
 import hmac
@@ -23,8 +23,7 @@ CO_CD = "A420"
 RTCTL_SCOP_CD = "08"
 DAYS_AHEAD = 30
 
-MOVIE_KEYWORDS = ("헤일메리", "Hail Mary", "hailmary", "HAIL MARY")
-MIN_TIME = "1800"
+TELEGRAM_LIMIT = 3800  # 여유 두고 4096보다 작게
 
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -40,12 +39,6 @@ def app_link(web_url: str) -> str:
 
 
 def showing_url(ymd: str, mov_no: str, scns_no: str, scn_sseq: str) -> str:
-    """/cnm/movieBook/movie + 모든 식별자 + siteNm.
-
-    siteNm 없이 cinema/movie 경로를 열면 서버가 siteNm=$undefined로 렌더해
-    UI 상 극장이 선택되지 않음. URL-encoded 한글 극장명을 넘겨야 예매 플로우가
-    해당 극장·회차로 사전 세팅된다.
-    """
     qs = (
         f"movNo={mov_no}&scnYmd={ymd}&siteNo={SITE_NO}&siteNm={_SITE_NM_ENC}"
         f"&scnsNo={scns_no}&scnSseq={scn_sseq}"
@@ -80,16 +73,8 @@ def is_imax(row: dict) -> bool:
     ).startswith("IMAX")
 
 
-def is_target_movie(row: dict) -> bool:
-    blob = " ".join(
-        (row.get(k) or "")
-        for k in ("prodNm", "movNm", "engProdNm", "movEnm", "expoProdNm")
-    )
-    return any(kw in blob for kw in MOVIE_KEYWORDS)
-
-
 def fetch_snapshot() -> dict[str, list[dict]]:
-    """{YYYYMMDD: [showing, ...]} — 헤일메리 IMAX & 18:00 이후만."""
+    """{YYYYMMDD: [showing, ...]} — 전체 IMAX 회차."""
     today = date.today()
     out: dict[str, list[dict]] = {}
     for i in range(DAYS_AHEAD + 1):
@@ -108,10 +93,10 @@ def fetch_snapshot() -> dict[str, list[dict]]:
         ).get("data") or []
         keep: list[dict] = []
         for r in rows:
-            if not (is_imax(r) and is_target_movie(r)):
+            if not is_imax(r):
                 continue
             start = r.get("scnsrtTm") or ""
-            if len(start) != 4 or not start.isdigit() or start < MIN_TIME:
+            if len(start) != 4 or not start.isdigit():
                 continue
             keep.append(
                 {
@@ -160,6 +145,22 @@ def send_telegram(text: str) -> None:
     resp.raise_for_status()
 
 
+def send_telegram_chunks(lines: list[str]) -> None:
+    """Telegram 4096자 한도에 걸리지 않게 줄 단위로 묶어 여러 메시지로 분할 송신."""
+    buf: list[str] = []
+    cur = 0
+    for ln in lines:
+        added = len(ln) + 1
+        if buf and cur + added > TELEGRAM_LIMIT:
+            send_telegram("\n".join(buf))
+            buf = []
+            cur = 0
+        buf.append(ln)
+        cur += added
+    if buf:
+        send_telegram("\n".join(buf))
+
+
 def fmt_date(ymd: str) -> str:
     return f"{ymd[:4]}-{ymd[4:6]}-{ymd[6:]}" if len(ymd) == 8 and ymd.isdigit() else ymd
 
@@ -178,9 +179,10 @@ def fmt_showing(ymd: str, s: dict) -> str:
     )
     label = (
         f'{fmt_time(s["scnsrtTm"])}~{fmt_time(s["scnendTm"])} '
-        f'· {esc(s["scnsNm"])} · 잔여 {esc(s["frSeatCnt"])}석'
+        f'· {esc(s["scnsNm"])} · 잔여 {esc(s["frSeatCnt"])}석 '
+        f'· {esc(s["prodNm"])}'
     )
-    return f'      - <a href="{link}">{label} (예매)</a>'
+    return f'      - <a href="{link}">{label}</a>'
 
 
 def main() -> int:
@@ -194,20 +196,14 @@ def main() -> int:
 
     if prev is None:
         total = sum(len(v) for v in current.values())
+        movies = {s["prodNm"] for shows in current.values() for s in shows}
+        furthest = max(current) if current else None
         lines = [
-            f"🎬 <b>{SITE_NM} 프로젝트 헤일메리 IMAX 감시 시작</b>",
-            f"18:00 이후 회차: {total}개 / {len(current)}일",
+            f"🎬 <b>{SITE_NM} IMAX 전체 감시 시작</b>",
+            f"현재 IMAX 회차: {total}개 / {len(current)}일 / 영화 {len(movies)}편",
         ]
-        if current:
-            lines.append("")
-            lines.append("📅 <b>현재 오픈 회차</b>")
-            for ymd in sorted(current):
-                lines.append(f"  • <b>{fmt_date(ymd)}</b>")
-                for s in current[ymd]:
-                    lines.append(fmt_showing(ymd, s))
-        else:
-            lines.append("")
-            lines.append("(아직 오픈된 회차 없음 — 열리면 알림 발송)")
+        if furthest:
+            lines.append(f"가장 먼 날짜: {fmt_date(furthest)}")
         send_telegram("\n".join(lines))
         save_state(current)
         print(f"initialized: {total} showings across {len(current)} days")
@@ -223,7 +219,7 @@ def main() -> int:
 
     if new_showings:
         lines = [
-            f"🎬 <b>{SITE_NM} 프로젝트 헤일메리 IMAX 신규 회차!</b> (18:00 이후)",
+            f"🎬 <b>{SITE_NM} IMAX 신규 회차</b> ({len(new_showings)}개)",
             "",
         ]
         by_date: dict[str, list[dict]] = {}
@@ -233,7 +229,7 @@ def main() -> int:
             lines.append(f"  • <b>{fmt_date(ymd)}</b>")
             for s in by_date[ymd]:
                 lines.append(fmt_showing(ymd, s))
-        send_telegram("\n".join(lines))
+        send_telegram_chunks(lines)
         print(f"notified: {len(new_showings)} new showings")
     else:
         print("no changes")
