@@ -123,8 +123,14 @@ def load_state() -> dict | None:
 
 
 def save_state(state: dict) -> None:
+    """state는 회차 식별자(scnsNo-scnSseq)만 저장. frSeatCnt 같은
+    변동 필드는 매 분 바뀌어 commit race를 유발하므로 제외."""
+    minimal = {
+        ymd: sorted(f'{s["scnsNo"]}-{s["scnSseq"]}' for s in shows)
+        for ymd, shows in state.items()
+    }
     STATE_FILE.write_text(
-        json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True),
+        json.dumps(minimal, ensure_ascii=False, indent=2, sort_keys=True),
         encoding="utf-8",
     )
 
@@ -209,11 +215,18 @@ def main() -> int:
         print(f"initialized: {total} showings across {len(current)} days")
         return 0
 
+    # prev는 새 포맷({ymd: ["scnsNo-scnSseq", ...]}) 또는 구 포맷 dict일 수 있음
+    def _prev_keys(ymd_val) -> set[str]:
+        raw = prev.get(ymd_val, [])
+        if raw and isinstance(raw[0], dict):
+            return {f'{r["scnsNo"]}-{r["scnSseq"]}' for r in raw}
+        return set(raw)
+
     new_showings: list[tuple[str, dict]] = []
     for ymd, shows in current.items():
-        prev_keys = {(s["scnsNo"], s["scnSseq"]) for s in prev.get(ymd, [])}
+        prev_keys = _prev_keys(ymd)
         for s in shows:
-            if (s["scnsNo"], s["scnSseq"]) not in prev_keys:
+            if f'{s["scnsNo"]}-{s["scnSseq"]}' not in prev_keys:
                 new_showings.append((ymd, s))
     new_showings.sort(key=lambda x: (x[0], x[1]["scnsrtTm"]))
 
