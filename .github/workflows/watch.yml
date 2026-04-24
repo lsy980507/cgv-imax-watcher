@@ -1,9 +1,11 @@
 name: CGV IMAX Watcher
 
 on:
-  schedule:
-    - cron: "* * * * *"   # 매 분
+  repository_dispatch:
+    types: [poll]
   workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"   # 외부 cron 장애 시 백업. GH는 이것도 제대로 안 지킴
 
 concurrency:
   group: watcher
