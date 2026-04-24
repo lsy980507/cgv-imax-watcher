@@ -1,0 +1,794 @@
+{
+  "20260425": [
+    {
+      "frSeatCnt": "152",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1116",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0830"
+    },
+    {
+      "frSeatCnt": "58",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1426",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1140"
+    },
+    {
+      "frSeatCnt": "177",
+      "movNo": "30001083",
+      "prodNm": "기동전사 건담-섬광의 하사웨이 키르케의 마녀(IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1648",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1450"
+    },
+    {
+      "frSeatCnt": "42",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1956",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1710"
+    },
+    {
+      "frSeatCnt": "78",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "2306",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2020"
+    },
+    {
+      "frSeatCnt": "242",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2616",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2330"
+    }
+  ],
+  "20260426": [
+    {
+      "frSeatCnt": "157",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1046",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0800"
+    },
+    {
+      "frSeatCnt": "288",
+      "movNo": "30001083",
+      "prodNm": "기동전사 건담-섬광의 하사웨이 키르케의 마녀(IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1308",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1110"
+    },
+    {
+      "frSeatCnt": "83",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1616",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1330"
+    },
+    {
+      "frSeatCnt": "69",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1926",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1640"
+    },
+    {
+      "frSeatCnt": "138",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "2236",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1950"
+    },
+    {
+      "frSeatCnt": "384",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2546",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2300"
+    }
+  ],
+  "20260427": [
+    {
+      "frSeatCnt": "399",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1146",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0900"
+    },
+    {
+      "frSeatCnt": "345",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1456",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1210"
+    },
+    {
+      "frSeatCnt": "516",
+      "movNo": "30001083",
+      "prodNm": "기동전사 건담-섬광의 하사웨이 키르케의 마녀(IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1718",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1520"
+    },
+    {
+      "frSeatCnt": "307",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "2026",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1740"
+    },
+    {
+      "frSeatCnt": "349",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "2336",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2050"
+    },
+    {
+      "frSeatCnt": "505",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2646",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2400"
+    }
+  ],
+  "20260428": [
+    {
+      "frSeatCnt": "452",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1046",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0800"
+    },
+    {
+      "frSeatCnt": "540",
+      "movNo": "30001083",
+      "prodNm": "기동전사 건담-섬광의 하사웨이 키르케의 마녀(IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1308",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1110"
+    },
+    {
+      "frSeatCnt": "376",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1616",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1330"
+    },
+    {
+      "frSeatCnt": "351",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1926",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1640"
+    },
+    {
+      "frSeatCnt": "478",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2546",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2300"
+    }
+  ],
+  "20260429": [
+    {
+      "frSeatCnt": "370",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1116",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0830"
+    },
+    {
+      "frSeatCnt": "417",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1328",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1140"
+    },
+    {
+      "frSeatCnt": "482",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1538",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1350"
+    },
+    {
+      "frSeatCnt": "469",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1748",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1600"
+    },
+    {
+      "frSeatCnt": "469",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "1958",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1810"
+    },
+    {
+      "frSeatCnt": "436",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2208",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2020"
+    },
+    {
+      "frSeatCnt": "570",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "7",
+      "scnendTm": "2418",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2230"
+    },
+    {
+      "frSeatCnt": "454",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "8",
+      "scnendTm": "2726",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2440"
+    }
+  ],
+  "20260430": [
+    {
+      "frSeatCnt": "382",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1116",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0830"
+    },
+    {
+      "frSeatCnt": "566",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1328",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1140"
+    },
+    {
+      "frSeatCnt": "550",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1538",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1350"
+    },
+    {
+      "frSeatCnt": "567",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1748",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1600"
+    },
+    {
+      "frSeatCnt": "536",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "1958",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1810"
+    },
+    {
+      "frSeatCnt": "472",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2208",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2020"
+    },
+    {
+      "frSeatCnt": "285",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "7",
+      "scnendTm": "2516",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2230"
+    },
+    {
+      "frSeatCnt": "449",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "8",
+      "scnendTm": "2826",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2540"
+    }
+  ],
+  "20260501": [
+    {
+      "frSeatCnt": "276",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1016",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0730"
+    },
+    {
+      "frSeatCnt": "433",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1228",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1040"
+    },
+    {
+      "frSeatCnt": "419",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1438",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1250"
+    },
+    {
+      "frSeatCnt": "429",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1648",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1500"
+    },
+    {
+      "frSeatCnt": "470",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "1858",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1710"
+    },
+    {
+      "frSeatCnt": "191",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2206",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1920"
+    },
+    {
+      "frSeatCnt": "363",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "7",
+      "scnendTm": "2516",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2230"
+    },
+    {
+      "frSeatCnt": "501",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "8",
+      "scnendTm": "2826",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2540"
+    }
+  ],
+  "20260502": [
+    {
+      "frSeatCnt": "301",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1016",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0730"
+    },
+    {
+      "frSeatCnt": "498",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1228",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1040"
+    },
+    {
+      "frSeatCnt": "480",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1438",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1250"
+    },
+    {
+      "frSeatCnt": "447",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1648",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1500"
+    },
+    {
+      "frSeatCnt": "469",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "1858",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1710"
+    },
+    {
+      "frSeatCnt": "204",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2206",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1920"
+    },
+    {
+      "frSeatCnt": "383",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "7",
+      "scnendTm": "2516",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2230"
+    },
+    {
+      "frSeatCnt": "508",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "8",
+      "scnendTm": "2826",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2540"
+    }
+  ],
+  "20260503": [
+    {
+      "frSeatCnt": "322",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1016",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0730"
+    },
+    {
+      "frSeatCnt": "492",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1228",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1040"
+    },
+    {
+      "frSeatCnt": "488",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1438",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1250"
+    },
+    {
+      "frSeatCnt": "487",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1648",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1500"
+    },
+    {
+      "frSeatCnt": "499",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "1858",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1710"
+    },
+    {
+      "frSeatCnt": "265",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2206",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1920"
+    },
+    {
+      "frSeatCnt": "428",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "7",
+      "scnendTm": "2516",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2230"
+    },
+    {
+      "frSeatCnt": "541",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "8",
+      "scnendTm": "2826",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2540"
+    }
+  ],
+  "20260504": [
+    {
+      "frSeatCnt": "359",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1046",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0800"
+    },
+    {
+      "frSeatCnt": "563",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1258",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1110"
+    },
+    {
+      "frSeatCnt": "539",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1748",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1600"
+    },
+    {
+      "frSeatCnt": "548",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "1958",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1810"
+    },
+    {
+      "frSeatCnt": "296",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2306",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2020"
+    },
+    {
+      "frSeatCnt": "431",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "7",
+      "scnendTm": "2616",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2330"
+    }
+  ],
+  "20260505": [
+    {
+      "frSeatCnt": "374",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "1",
+      "scnendTm": "1016",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "0730"
+    },
+    {
+      "frSeatCnt": "545",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "2",
+      "scnendTm": "1228",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1040"
+    },
+    {
+      "frSeatCnt": "527",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "3",
+      "scnendTm": "1438",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1250"
+    },
+    {
+      "frSeatCnt": "523",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "4",
+      "scnendTm": "1648",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1500"
+    },
+    {
+      "frSeatCnt": "546",
+      "movNo": "30001067",
+      "prodNm": "슈퍼 마리오 갤럭시(자막,IMAX LASER 2D)",
+      "scnSseq": "5",
+      "scnendTm": "1858",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1710"
+    },
+    {
+      "frSeatCnt": "295",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "6",
+      "scnendTm": "2206",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "1920"
+    },
+    {
+      "frSeatCnt": "487",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "7",
+      "scnendTm": "2516",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2230"
+    },
+    {
+      "frSeatCnt": "561",
+      "movNo": "30000994",
+      "prodNm": "프로젝트 헤일메리(IMAX LASER 2D)",
+      "scnSseq": "8",
+      "scnendTm": "2826",
+      "scnsNm": "IMAX관",
+      "scnsNo": "018",
+      "scnsrtTm": "2540"
+    }
+  ]
+}
